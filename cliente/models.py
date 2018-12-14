@@ -1,9 +1,18 @@
 from django.db import models
+from restaurantes.models import Produto
+
+GENERO_CHOICE = (
+    ('M','Masculino'),
+    ('F','Feminino'),
+    ('N', 'Não Declarado'),
+)
 
 
 class Cliente(models.Model):
     nome = models.CharField(
         'Nome', max_length=120)
+    genero = models.CharField(
+        'Genero', max_length=2, choices=GENERO_CHOICE)
     endereco = models.CharField(
         'Endereço', max_length=80, blank=True, null=True)
     cidade = models.CharField(
@@ -28,15 +37,15 @@ class Cliente(models.Model):
 
 
 class Pedido(models.Model):
-    produto = models.CharField('Produto', max_length=120)
-    Quantidade = models.CharField(
+    produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
+    quantidade = models.CharField(
         'Quantidade', max_length=2, blank=True, null=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     
     class Meta:
 
-        verbose_name = 'Cliente'
-        verbose_name_plural = 'Clientes'
+        verbose_name = 'Pedido'
+        verbose_name_plural = 'Pedidos'
 
     def __str__(self):
         return self.produto        

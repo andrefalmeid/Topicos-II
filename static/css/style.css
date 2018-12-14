@@ -1,0 +1,11 @@
+/* Make Select2 boxes match Bootstrap3 heights: */
+.select2-selection {
+  height: 34px !important;
+}
+
+.chart-legend li span{
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+}

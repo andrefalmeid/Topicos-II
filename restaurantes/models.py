@@ -17,10 +17,10 @@ class Restaurante(models.Model):
         verbose_name_plural = 'Restaurantes'
 
     def __str__(self):
-        return self.nome
+        return f'{self.nome}'
 
 
-class Produtos(models.Model):
+class Produto(models.Model):
     produto = models.CharField(
         'Produto', max_length=120)
     descricao = models.CharField(

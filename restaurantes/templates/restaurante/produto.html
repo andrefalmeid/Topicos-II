@@ -1,0 +1,155 @@
+{% extends "cliente/base.html" %}
+{% load staticfiles %}
+{% load bootstrap %}
+
+{% block content-header %}
+
+<i class="fa fa-coffee "> </i> Restaurantes
+<small>Cadastrar e consultar</small>
+
+
+{% endblock content-header %}
+
+
+{% block content-main %}
+
+
+<div class="col-xs-12">
+
+
+    <div class="box">
+        <div class="box">
+            <div class="box-header">
+                <button type="button" class="ui-button" data-toggle="modal" data-target="#exampleModal51">Cadastrar produto
+                </button>
+            </div>
+
+            <div class="box-header">
+                <h3 class="box-title">Produtos cadastrados no sistema</h3>
+            </div>
+
+
+            <div class="box-body">
+                <table id="tabela" class="table table-bordered table-striped" style="font-size: 13px">
+                    <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Restaurante </th>
+                        
+                        
+                        <th>Ações</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for u in produto %}
+                    <tr>
+                            <td >{{ u.produto }}</td>
+                            <td >{{ u.descricao }}</td>
+                            <td >{{ u.preco }}</td>
+                            <td >{{ u.restaurante_que_vende }}</td>
+                            
+
+                        <td>
+
+
+                            <a href="#" data-toggle="modal" data-target="#modalEdit{{u.id}}">
+                                <button type="button" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></i></button>
+                            </a>
+                            <a href="#" data-toggle="modal" data-target="#modalDelete{{u.id}}">
+                                <button type="button" class="btn btn-xs btn-danger" id="confirm"><i class="fa fa-close"></i></button>
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    <div class="modal fade" id="modalEdit{{u.id}}" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="modalDelete{{ u.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    Confirmação de Exclusão
+                                </div>
+                                <div class="modal-body">
+                                    <form method="GET">
+                                        Tem certeza?
+                                    
+                                        <div class="modal-footer">
+                                            <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                            <a href="#" class="btn btn-danger">Excluir</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+        <div class="modal fade" id="exampleModal51" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                      </button>
+                      <h4 class="modal-title" id="exampleModalLabel">Cadastrar CLientes</h4>
+                  </div>
+                  <div class="modal-body">
+                      <form method="POST">
+                          {% csrf_token %}
+                          {{ form|bootstrap }} 
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                          <button type="submit" class="btn btn-success">Cadastrar</button>
+                      </form>
+                  </div>
+      
+              </div>
+          </div>
+      </div>
+
+
+{% endblock content-main %}
+
+
+{% block extraJS %}
+
+<script>
+        
+           
+        
+        
+        $(document).ready(function () {
+
+            $('#tabela').DataTable({
+                "language": {
+                    "url": "{% static 'datatables/Portuguese-Brasil.json' %}"
+                },
+                stateSave: true,
+            });
+
+        });
+
+
+</script>
+
+
+{% endblock extraJS %}
