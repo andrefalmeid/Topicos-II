@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+        <style>
+                table {
+                  font-family: arial, sans-serif;
+                  border-collapse: collapse;
+                  width: 100%;
+                }
+                
+                td, th {
+                  border: 1px solid #dddddd;
+                  text-align: left;
+                  padding: 8px;
+                }
+                
+                tr:nth-child(even) {
+                  background-color: #dddddd;
+                }
+                </style>
+<head>
+<table id="tabela" class="table table-bordered table-striped" style="font-size: 13px">
+    <thead>
+    <tr>
+        <th>Nome Cliente</th>
+        <th>Endereço</th>
+        <th>Cidade</th>
+        <th>Sexo</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for u in cliente %}
+    <tr>
+            <td >{{ u.nome }}</td>
+            <td >{{ u.endereco }}</td>
+            <td >{{ u.cidade }}</td>
+            <td >{{ u.get_genero_display }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

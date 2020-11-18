@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+        <style>
+                table {
+                  font-family: arial, sans-serif;
+                  border-collapse: collapse;
+                  width: 100%;
+                }
+                
+                td, th {
+                  border: 1px solid #dddddd;
+                  text-align: left;
+                  padding: 8px;
+                }
+                
+                tr:nth-child(even) {
+                  background-color: #dddddd;
+                }
+                </style>
+<head>
+<table id="tabela" class="table table-bordered table-striped" style="font-size: 13px">
+    <thead>
+      <tr>
+        <th>Produto</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Restaurante </th>
+      </tr>
+     </thead>
+    
+     {% for u in produto %}
+    <tr>
+      <td >{{ u.produto }}</td>
+      <td >{{ u.descricao }}</td>
+      <td >{{ u.preco }}</td>
+      <td >{{ u.restaurante_que_vende }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

@@ -37,10 +37,7 @@
                         <th>Endereço</th>
                         <th>Cidade</th>
                         <th>Sexo</th>
-                        
-
-
-
+                        <th>Ações</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -54,9 +51,7 @@
                            
 
                         <td>
-
-
-                            <a href="#" data-toggle="modal" data-target="#modalEdit{{u.id}}">
+                            <a href="{% url 'cliente_edit' u.id%}" data-toggle="modal" data-target="#modalEdit{{u.id}}">
                                 <button type="button" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></i></button>
                             </a>
                             <a href="#" data-toggle="modal" data-target="#modalDelete{{u.id}}">
@@ -70,7 +65,7 @@
                          aria-labelledby="exampleModalLabel">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-
+                                <!--Modal continua no arquivo cliente_edit.html-->
                             </div>
                         </div>
                     </div>
@@ -87,7 +82,7 @@
                                     
                                         <div class="modal-footer">
                                             <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                            <a href="#" class="btn btn-danger">Excluir</a>
+                                            <a href="{% url 'cliente_delete' u.id%}" class="btn btn-danger">Excluir</a>
                                         </div>
                                     </form>
                                 </div>

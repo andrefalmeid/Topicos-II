@@ -10,7 +10,7 @@
         <!-- Bootstrap 3.3.7 -->
         <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">    <!-- Theme style -->
         <link rel="stylesheet" type="text/css" href="{% static 'adminLTE/css/AdminLTE.min.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'adminLTE/css/skins/skin-black.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'adminLTE/css/skins/skin-yellow.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/checkbox.css' %}" >
         <!-- iCheck -->
@@ -24,7 +24,7 @@
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
-    <body class="hold-transition skin-black sidebar-mini">
+    <body class="hold-transition skin-yellow sidebar-mini">
     <div class="wrapper">
 
     <header class="main-header">
@@ -33,7 +33,7 @@
          
         <span class="logo-mini">DF</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">DiamanFood</span>
+        <span class="logo-lg"><strong><em>Diaman</em></strong>Food</span>
         
         </a>
         <!-- Header Navbar: style can be found in header.less -->
@@ -145,7 +145,7 @@
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
-              <ul class="treeview-menu" >
+              <ul class="treeview-menu">
                 <li><a href="{% url 'cliente'%}"><i class="fa fa-users"></i> Clientes</a></li>
                 <li><a href="{% url 'pedido'%}"><i class="fa fa- fa-check"></i> Pedidos</a></li>
               </ul>
@@ -232,7 +232,8 @@
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
     <script src={% static 'chart.js/Chart.js' %}></script>
     <script src={% static 'inputmask/dist/min/jquery.inputmask.bundle.min.js' %}></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
+  
     {% block extraJS %}{% endblock extraJS %}
         
 

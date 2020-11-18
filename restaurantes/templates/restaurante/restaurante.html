@@ -55,7 +55,7 @@
                         <td>
 
 
-                            <a href="#" data-toggle="modal" data-target="#modalEdit{{u.id}}">
+                            <a href="{% url 'restaurante_edit' u.id%}" data-toggle="modal" data-target="#modalEdit{{u.id}}">
                                 <button type="button" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></i></button>
                             </a>
                             <a href="#" data-toggle="modal" data-target="#modalDelete{{u.id}}">
@@ -87,7 +87,7 @@
                                     
                                         <div class="modal-footer">
                                             <button  type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                            <a href="#" class="btn btn-danger">Excluir</a>
+                                            <a href="{% url 'restaurante_delete' u.id%}" class="btn btn-danger">Excluir</a>
                                         </div>
                                     </form>
                                 </div>

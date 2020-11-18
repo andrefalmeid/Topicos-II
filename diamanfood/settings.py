@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'bootstrapform',
     'cliente',
     'restaurantes',
+    'api',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
